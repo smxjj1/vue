@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='myVue'>
+        <form action="#">
+            <input type="text" name='username' v-model='name'>
+            <input type="text" name='pw' v-model='password'>
+            <input type="submit" v-on:click='submit'>
+        </form>
+
+    </div>
+    <script src="./vue221.js"></script>
+    <script>
+        var vM = new Vue({
+            el: '#myVue',
+            data: {
+                name: 'hehe',
+                password: 123
+            },
+            methods: {
+                submit: function () {
+                    alert(this.name + "  pwd=" + this.password);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<div id="app">	
+	{{ name + '1'}} 
+	{{ name == 'wo'? 'true': 'false' }}
+	{{ foo(name) }}
+	</div>
+</body>
+<script src="vue1026.js"></script>
+<script>
+var vm = new Vue({
+	el:'#app', 
+	data: {
+		name:'wo'
+	},
+	methods:{
+		foo:function(str){
+			if(str=='true'){
+				return '这是一个新的name'
+			}else{
+				return "这是原来的name"
+			}
+			
+		}
+	}
+});
+</script>
+</html>

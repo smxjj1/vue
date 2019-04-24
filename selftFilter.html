@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='myVue'>
+        {{ list | getUper }}
+    </div>
+    <script src='../vue221.js'></script>
+    <script>
+        //自定义全局变量：
+        Vue.filter('getUper', function (input) {
+            var arr = input.split('-');
+            var arr1 = arr.map(function (item, index) {
+                if (index > 0) {
+                    return item.charAt(0).toUpperCase() + item.substr(1, item.length - 1)
+                }
+            });
+            arr1[0] = arr[0];
+            var str = arr1.join('');
+            return str;
+        });
+        var vM = new Vue({
+            el: '#myVue',
+            data: {
+                list: "go-fuck-yourself"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

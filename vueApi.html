@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue command</title>
+   
+</head>
+
+<body>
+    <div id='app'>
+        <ul>
+            <li v-for='item in list'> 
+                {{item.name}}---{{item.age}}
+                <!-- <button @click="sum(item.age)"> sum age</button> -->
+            </li>
+            <button @click="change()"> change value</button>
+        </ul>
+        {{word}}
+        <a v-bind="{href:'http://itcast.cn/index/'+id}">跳转</a> 
+        <input type="text" v-model="name"/>
+        <form action="#">
+                <input type="text" id="username" v-model="user.uname"/>
+                <input type="password" id="pwd" v-model="user.upwd"/>
+                <input type="submit" v-on:click="submit" value="注册"/>
+        </form>       
+    </div>
+
+</body>
+<script src="./vue221.js"></script>
+<script>
+    //第一步引入vue.js文件
+    //第二部 创建一个vue 对象,添加el:'#app',属性.
+    var vm = new Vue({
+        el: "#app",
+        //创建data属性
+        data: {
+            list: [{
+                age: 1,
+                name: 'lilith'
+            }],
+            word:"go fuck yourself!!!",
+            id:2,
+            name:'黑马程序员',
+            user:{
+                uname:'',
+                upwd:''
+            }
+        },
+        methods:{
+            change:function(){
+               ( this.list[0]["age"])+="2";
+            },
+            submit:function(){
+                alert(this.user.uname+"pwd="+this.user.upwd);
+            }
+        }
+    })
+</script>
+ 
+
+</html>

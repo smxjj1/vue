@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <metahttp-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+
+    <body>
+        <form name="form1" id='form'>
+            <input type="radio" class="radioGroup" />
+            <input type="radio" class="radioGroup" />
+            <input type="radio" class="radioGroup" />
+            <input type="radio" class="radioGroup" checked/>
+            <input type="submit" />
+        </form>
+    </body>
+
+</html>
+<script type="text/javascript">
+    function foo() {
+        //在此处添加代码
+        var form = document.getElementById('form');
+
+        var rdo = form.getElementsByClassName('input');
+        for (var i = 0; i < rdo.length; i++) {
+            (function () {
+                if (rdo.checked) {
+                    alert('您选择的是第' + (i + 1) + '个单选框');
+                }
+            })
+
+        }
+    }
+    foo();
+</script>

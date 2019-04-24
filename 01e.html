@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .v-cloak {
+        display: none;
+    }
+</style>
+
+<body>
+
+
+    <div id='app'>
+        <div v-html='name'></div>
+        <div v-text='name'></div>
+        <div class='v-cloak'>{{name}}</div>
+        <p>在差值表达式里面的内容是可以进行一些简单的js代码执行判断的</p>
+        <p>
+            执行一些其他的js操作的时候是需要提前规定好js方法，这里面只能用methods 或者data里面的变量或者方法
+        </p>
+        <p>
+            差值表达式有时候会有闪烁的问题， 这是因为有时候网络较慢的时候，先加载的页面， 再加载的js文件，导致差值表达式先原样输出， 最后加载完js文件之后再显示变量值
+        </p>
+        <p>
+            解决办法：用v-text 存储到属性中，加载完js后再显示 用 class= 'v-cloak' .v-cloak{ display:none} 到加载完js之后移除v-cloak 样式即可
+        </p>
+        <!-- <div>{{name=='wo'?alert('true'):alert('false')}}</div> -->
+        <button v-on:click='change'>change</button>
+    </div>
+
+
+</body>
+<script src="./vue221.js"></script>
+<script>
+    var Vm = new Vue({
+        el: '#app', //创建一个元素，将确定模板管理的区域
+        data: {
+            name: '<h1>卧槽了</h1>'
+        },
+        methods: {
+            change: function () {
+                this.name += 1;
+            },
+            isTrue: function (str) {
+                if (str == 'true') {
+                    return 'this is a true result'
+                } else {
+                    return 'this is a fault result'
+                }
+            },
+            alert: function (str) {
+                alert(str);
+            }
+        }
+    })
+</script>
+
+
+</html>
